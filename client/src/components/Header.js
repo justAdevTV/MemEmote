@@ -20,11 +20,11 @@ class Header extends Component {
                     <NavItem key="createList"><Link to="lists/create">Create List</Link></NavItem>,
                     <NavItem key="myAccount"><Link to="myAccount">My Account</Link></NavItem>,
                     <NavItem key="logout"><a href="/api/logout">Logout</a></NavItem>
-                ]
+                ];
         }
     }
 
-    render () {
+    render() {
         return (
             <Navbar brand='MemeMote' right>
                 {this.renderContent()}

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
@@ -9,7 +9,7 @@ const Landing = () => <h2>Landing</h2>;
 class App extends Component {
 
     componentDidMount() {
-        // this.props.fetchUser();
+        this.props.fetchUser();
     }
 
     render() {
