@@ -23,6 +23,6 @@ module.exports = (app) => {
 
     app.get('/api/logout', (req, res) => {
         req.logout();
-        res.redirect('/');
+        res.redirect('/api/current_user');
     });
 }
