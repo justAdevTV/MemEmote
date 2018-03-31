@@ -16,7 +16,7 @@ class Header extends Component {
             default:
                 return [
                     <li key="lists"><Link to="/MyMemeMotes">My MemeMotes</Link></li>,
-                    <li key="createList"><Link to="lists/Upload">Upload</Link></li>,
+                    <li key="createList"><Link to="/Upload">Upload</Link></li>,
                     <li key="logout"><a href="/api/logout">Logout</a></li>
                 ];
         }
