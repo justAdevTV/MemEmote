@@ -7,6 +7,7 @@ const cardSchema = new Schema({
     author: String,
     img: { data: Buffer, contentType: String },
     score: CardScore,
+    numReviews: {type: Number, default: 0},
     _user: { type: Schema.Types.ObjectId, ref: 'User'}
 });
 
