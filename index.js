@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
 
 const cookieSession = require('cookie-session');
@@ -7,6 +8,13 @@ const bodyParser = require('body-parser');
 
 // Keys
 const keys = require('./config/keys');
+
+// Models
+require('./models/User');
+mongoose.connect(keys.mongoURI);
+
+// Just runs passport
+require('./services/passport');
 
 // Cookie Session
 app.use(
@@ -25,6 +33,9 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 // Passport.js init
 app.use(passport.initialize());
 app.use(passport.session());
+
+// Routes
+require('./routes/authRoutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // Express will serve up production assets
