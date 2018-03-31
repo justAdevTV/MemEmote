@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
+import Landing from './Landing';
+import MyMemeMotes from './MyMemeMotes';
 import * as actions from '../actions';
-
-const Landing = () => <h2>Landing</h2>;
 
 class App extends Component {
 
@@ -19,6 +19,7 @@ class App extends Component {
                     <div>
                         <Header />
                         <Route exact path="/" component={Landing} />
+                        <Route exact path="/MyMemeMotes" component={MyMemeMotes} />
                     </div>
                 </BrowserRouter>
             </div>
