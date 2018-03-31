@@ -2,34 +2,39 @@
 const vision = require('@google-cloud/vision');
 
 // Creates a client
-const client = new vision.ImageAnnotatorClient();
+const client = new vision.ImageAnnotatorClient(
+    {
+        projectId: 'mememote-dev',
+        keyFilename: './MemeMote-dev-f83627f12b13.json'
+    }
+);
 
 /**
  * TODO(developer): Uncomment the following line before running the sample.
  */
-const fileName = 'https://cloud.google.com/vision/docs/images/car.png';
+const fileName = './car.png';
 
 module.exports = (app) => {
-    app.get(
+    app.post(
         '/api/vision_test', 
         (req, res) => {
-            
+            const pic = req.body.img;
             client
-                .faceDetection(fileName)
+                .faceDetection(pic)
                 .then(results => {
-                const faces = results[0].faceAnnotations;
+                    const faces = results[0].faceAnnotations;
+                    const emotions = {
+                        joy: faces[0].joyLikelihood,
+                        anger: faces[0].angerLikelihood,
+                        sorrow: faces[0].sorrowLikelihood,
+                        surprise: faces[0].surpriseLikelihood
+                    };
 
-                console.log('Faces:');
-                faces.forEach((face, i) => {
-                        console.log(`  Face #${i + 1}:`);
-                        console.log(`    Joy: ${face.joyLikelihood}`);
-                        console.log(`    Anger: ${face.angerLikelihood}`);
-                        console.log(`    Sorrow: ${face.sorrowLikelihood}`);
-                        console.log(`    Surprise: ${face.surpriseLikelihood}`);
-                    });
-            })
-            .catch(err => {
-                console.error('ERROR:', err);
+                    res.send(emotions);
+                })
+                .catch(err => {
+                    res.send(err);
+                    console.error('ERROR:', err);
             });
     });
 }
