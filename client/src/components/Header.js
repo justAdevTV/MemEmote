@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { NavItem, Navbar } from 'react-materialize';
 
 class Header extends Component {
 
@@ -11,24 +10,34 @@ class Header extends Component {
                 return;
             case false:
                 return [
-                    <NavItem key="login"><a href="/auth/google">Login</a></NavItem>,
-                    <NavItem key="lists"><Link to="/lists">Lists</Link></NavItem>
+                    <li key="login"><a href="/auth/google">Login</a></li>,
+                    <li key="signup"><Link to="/SignUp">Sign Up</Link></li>
                 ];
             default:
                 return [
-                    <NavItem key="lists"><Link to="/lists">Lists</Link></NavItem>,
-                    <NavItem key="createList"><Link to="lists/create">Create List</Link></NavItem>,
-                    <NavItem key="myAccount"><Link to="myAccount">My Account</Link></NavItem>,
-                    <NavItem key="logout"><a href="/api/logout">Logout</a></NavItem>
+                    <li key="lists"><Link to="/MyMemeMotes">My MemeMotes</Link></li>,
+                    <li key="createList"><Link to="lists/Upload">Upload</Link></li>,
+                    <li key="logout"><a href="/api/logout">Logout</a></li>
                 ];
         }
     }
 
-    render() {
+    render () {
         return (
-            <Navbar brand='MemeMote' right>
-                {this.renderContent()}
-            </Navbar>
+            <nav className="blue">
+                <div className="container">
+                    <div className="nav-wrapper">
+                        <Link to="/" className="brand-logo">MemeMote</Link>
+                        <a href="" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+                        <ul className="right hide-on-med-and-down">
+                            {this.renderContent()}
+                        </ul>
+                        <ul className="side-nav" id="mobile-demo">
+                            {this.renderContent()}
+                        </ul>
+                    </div>
+                </div>    
+            </nav>        
         );
     }
 }
