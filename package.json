@@ -24,6 +24,9 @@
     "mongoose": "^4.13.9",
     "nodemon": "^1.14.9",
     "passport": "^0.4.0",
-    "passport-google-oauth20": "^1.0.0"
+    "passport-google-oauth20": "^1.0.0",
+    "react": "^16.3.0",
+    "react-dropzone": "^4.2.9",
+    "superagent": "^3.8.2"
   }
 }

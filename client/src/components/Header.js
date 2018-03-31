@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Modal, Button } from 'react-materialize';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+import UploadImage from './UploadImage';
 
 class Header extends Component {
 
@@ -22,7 +25,9 @@ class Header extends Component {
                         <Modal
                             header='Upload a Meme'
                             trigger={<Button>Upload</Button>}>
-                            <p>Insert a URL</p>
+                            <center>
+                                <UploadImage />
+                            </center>
                         </Modal>
                     </li>,
                     <li key="logout"><a href="/api/logout">Logout</a></li>
@@ -30,7 +35,7 @@ class Header extends Component {
         }
     }
 
-    render () {
+    render() {
         return (
             <nav className="blue">
                 <div className="container">
