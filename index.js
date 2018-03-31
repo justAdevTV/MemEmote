@@ -14,6 +14,8 @@ require('./models/User');
 require('./models/Card');
 mongoose.connect(keys.mongoURI);
 
+// require('./services/cloudVision');
+
 // Just runs passport
 require('./services/passport');
 

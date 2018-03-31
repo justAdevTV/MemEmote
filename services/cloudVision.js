@@ -5,7 +5,8 @@ const Storage = require('@google-cloud/storage');
 // specifying the private key file. All clients in google-cloud-node have this
 // helper, see https://github.com/GoogleCloudPlatform/google-cloud-node/blob/master/docs/authentication.md
 const storage = new Storage({
-  keyFilename: './MemeMote-dev-5febe5ecf206.json'
+  projectId: 'mememote-dev',
+  keyFilename: './MemeMote-dev-f83627f12b13.json'
 });
 
 // Makes an authenticated API request.
