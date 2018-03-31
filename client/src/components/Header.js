@@ -20,9 +20,9 @@ class Header extends Component {
                     <li key="reactedmemes"><Link to="/ReactedMemes">My Reacted Memes</Link></li>,
                     <li key="createList">
                         <Modal
-                            header='Modal Header'
+                            header='Upload a Meme'
                             trigger={<Button>Upload</Button>}>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                            <p>Insert a URL</p>
                         </Modal>
                     </li>,
                     <li key="logout"><a href="/api/logout">Logout</a></li>

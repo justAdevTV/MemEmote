@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Row, Col, Card, CardTitle, Icon } from 'react-materialize';
+import { Row, Col, Card, CardTitle, Icon, Modal, Button } from 'react-materialize';
 
 class Posts extends Component {
     render() {
@@ -20,20 +20,36 @@ class Posts extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col m={3} ></Col>
+                    <Col m={3}></Col>
                     <Col m={6}>
                         <Card
                             className='medium'
                             header={<CardTitle style={styles.HeaderStyle} image='https://img-9gag-fun.9cache.com/photo/aBx2xpz_460swp.webp'></CardTitle>}
-                            actions={[<a href='#'>This is a Link</a>]}>
+                            actions={[<Modal
+                                    header='Confirm Delete'
+                                    trigger={<Button style={styles.DeleteButtonStyle}>Delete</Button>}>
+                                    <p>Are you sure you would like to delete this post?</p>
+                                </Modal>]}>
                             Card Title
                         </Card>
                     </Col>
-                    <Col m={1}>
-                        <Icon> 
-                            insert_delete_forever
-                        </Icon>
+                    <Col m={3}></Col>
+                </Row>
+                <Row>
+                    <Col m={3}></Col>
+                    <Col m={6}>
+                        <Card
+                            className='medium'
+                            header={<CardTitle style={styles.HeaderStyle} image='https://img-9gag-fun.9cache.com/photo/aBx2xpz_460swp.webp'></CardTitle>}
+                            actions={[<Modal
+                                    header='Confirm Delete'
+                                    trigger={<Button style={styles.DeleteButtonStyle}>Delete</Button>}>
+                                    <p>Are you sure you would like to delete this post?</p>
+                                </Modal>]}>
+                            Card Title
+                        </Card>
                     </Col>
+                    <Col m={3}></Col>
                 </Row>
             </div>
         );
@@ -50,6 +66,9 @@ const styles = {
     },
     PostsStyle: {
         textDecoration: 'underline'
+    },
+    DeleteButtonStyle: {
+        backgroundColor: 'red'
     }
 
 }

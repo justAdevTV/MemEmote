@@ -2,6 +2,8 @@ import axios from 'axios';
 import { 
     FETCH_USER,
     FETCH_CARDS,
+    FETCH_USER_CARDS,
+    FETCH_USER_REACTED_CARDS,
     FETCH_CARD,
     CREATE_CARD,
     DELETE_CARD
@@ -23,6 +25,22 @@ export function fetchCards() {
         type: FETCH_CARDS,
         payload: request
     };
+};
+
+export function fetchUserCards() {
+    const request = axios.get('/api/current_user/cards');
+    return {
+        type: FETCH_USER_CARDS,
+        payload: request
+    };
+};
+
+export function fetchUserReactedCards() {
+    const request = axios.get('/api/user_reacted_cards');
+    return {
+        type: FETCH_USER_REACTED_CARDS,
+        payload: request
+    }
 }
 
 export function createCard(values, callback) {
@@ -33,7 +51,7 @@ export function createCard(values, callback) {
         type: CREATE_CARD,
         payload: request
     };
-}
+};
 
 export function fetchCard(id) {
     const request = axios.get(`/api/card/${id}`);
@@ -42,7 +60,7 @@ export function fetchCard(id) {
         type: FETCH_CARD,
         payload: request
     };
-}
+};
 
 export function deleteCard(id, callback) {
     const request = axios.delete(`/api/card/${id}`)
@@ -52,4 +70,4 @@ export function deleteCard(id, callback) {
         type: DELETE_CARD,
         payload: id
     };
-}
+};
