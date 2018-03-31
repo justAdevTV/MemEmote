@@ -18,7 +18,7 @@ module.exports = (app) => {
     app.post(
         '/api/vision_test', 
         (req, res) => {
-            const pic = req.body.img;
+            const pic = req.body.picture;
             client
                 .faceDetection(pic)
                 .then(results => {
@@ -30,6 +30,7 @@ module.exports = (app) => {
                         surprise: faces[0].surpriseLikelihood
                     };
 
+                    console.log(emotions);
                     res.send(emotions);
                 })
                 .catch(err => {

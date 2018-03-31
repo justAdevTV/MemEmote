@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Webcam from 'react-webcam';
+import { connect } from 'react-redux';
+import { sendEmotion } from '../actions';
+import dataURItoBlob from '../middleware/dataURItoBlob';
 
 class WebcamCapture extends Component {
     setRef = (webcam) => {
@@ -8,7 +11,9 @@ class WebcamCapture extends Component {
    
     // Call this to capture image
     capture = () => {
-      const imageSrc = this.webcam.getScreenshot();
+      const imageSrc = dataURItoBlob(this.webcam.getScreenshot());
+      console.log(imageSrc);
+      {this.props.sendEmotion(2, imageSrc)};                                                                                                          
     };
    
     render() {
@@ -21,9 +26,9 @@ class WebcamCapture extends Component {
             screenshotFormat="image/jpeg"
             width={350}
           />
+          <button onClick={this.capture}>Capture photo</button>
         </div>
       );
     }
 }
-
-export default WebcamCapture;
+export default connect(null, {sendEmotion})(WebcamCapture);
