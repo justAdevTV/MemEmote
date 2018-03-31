@@ -13,7 +13,7 @@ module.exports = (app) => {
         '/auth/google/callback', 
         passport.authenticate('google'),
         (req, res) => {
-            res.redirect('/api/current_user');
+            res.redirect('/');
         }
     );
 
@@ -23,6 +23,6 @@ module.exports = (app) => {
 
     app.get('/api/logout', (req, res) => {
         req.logout();
-        res.redirect('/api/current_user');
+        res.redirect('/');
     });
 }
