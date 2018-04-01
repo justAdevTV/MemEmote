@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import {connect} from 'react-redux';
+import { createCard } from '../actions';
 
 import { Icon } from 'react-materialize';
 const CLOUDINARY_UPLOAD_PRESET = 'bpqajh69';
@@ -26,8 +28,8 @@ class UploadImage extends Component {
 
     handleImageUpload(file) {
         let upload = request.post(CLOUDINARY_UPLOAD_URL)
-                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-                        .field('file', file);
+            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+            .field('file', file);
 
         upload.end((err, response) => {
         if (err) {
@@ -36,10 +38,26 @@ class UploadImage extends Component {
 
         if (response.body.secure_url !== '') {
             this.setState({
-            uploadedFileCloudinaryUrl: response.body.secure_url
+                uploadedFileCloudinaryUrl: response.body.secure_url
             });
         }
         });
+    }
+
+    renderPreviewImage(){
+
+        const imgUrl = this.state.uploadedFileCloudinaryUrl;
+        
+        this.props.createCard({img: imgUrl});
+
+        return (
+            <div>
+                <p>{this.state.uploadedFile.name}</p>
+                <div style={{flex: 1}}>
+                    <img src={this.state.uploadedFileCloudinaryUrl} />
+                </div>
+            </div>
+        );
     }
 
     render() {
@@ -59,12 +77,7 @@ class UploadImage extends Component {
 
                 <div>
                     {this.state.uploadedFileCloudinaryUrl === '' ? null :
-                    <div>
-                        <p>{this.state.uploadedFile.name}</p>
-                        <div style={{flex: 1}}>
-                            <img src={this.state.uploadedFileCloudinaryUrl} />
-                        </div>
-                    </div>}
+                    this.renderPreviewImage()}
                 </div>  
             </form>
             
@@ -72,4 +85,4 @@ class UploadImage extends Component {
     }
 }
 
-export default UploadImage;
+export default connect(null, {createCard})(UploadImage);

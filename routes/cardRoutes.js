@@ -1,5 +1,6 @@
 const requireAuth = require('../middlewares/requireAuth');
 const passport = require('passport');
+const mongoose = require('mongoose');
 const cards = mongoose.model('cards');
 
 module.exports = (app) => {
@@ -29,6 +30,7 @@ module.exports = (app) => {
     // Create Card
     app.post(
         '/api/cards',
+        requireAuth,
         (req, res) => {
             const body = req.body;
 

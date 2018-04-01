@@ -5,7 +5,7 @@ const CardScore = require('./CardScore');
 const cardSchema = new Schema({
     date: Date,
     author: String,
-    img: { data: Buffer, contentType: String },
+    img: String,
     score: CardScore,
     numReviews: {type: Number, default: 0},
     _user: { type: Schema.Types.ObjectId, ref: 'User'}
