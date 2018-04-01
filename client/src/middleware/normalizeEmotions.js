@@ -1,7 +1,18 @@
+import _ from 'lodash';
+
 export default function normalizeEmotion(emotions) {
 
+    let highest = 'neutral';
+
     let newObj = mapValues(emotions, x => evalToNumber(x));
-    return newObj;
+    if (emotions.joy == emotions.surprise && emotions.joy == emotions.anger
+         && emotions.joy == emotions.sorrow) {
+            highest = 'neutral';
+    } else {
+        let maxKey = _.maxBy(_.keys(newObj), function (o) { return newObj[o]; });
+        highest = maxKey;
+    }
+    return {newObj, highest};
 }
 
 // Retain object structure

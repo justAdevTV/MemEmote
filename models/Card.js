@@ -8,6 +8,7 @@ const cardSchema = new Schema({
     score: {type: Object, default: {
         joy: 0,
         anger: 0,
+        neutral: 0,
         sorrow: 0,
         suprise: 0
     }},
