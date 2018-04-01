@@ -1,16 +1,22 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Card, CardTitle, Row, Col } from 'react-materialize';
-import WebcamCapture from './WebcamCapture';
+import { Row, Col, Card, CardTitle, Modal, Button } from 'react-materialize';
 
-class Landing extends Component {
+class ReactedMemes extends Component {
     render() {
         return (
-            <div className="container">
+            <div class="container">
                 <Row>
-                    <Col m={7}>
-                        <h3>Embrace your Memotions</h3>
+                    <Col m={7} style={styles.TitleStyle} className='grid-example'>Reacted Memes</Col>
+                </Row>
+                <Row>
+                    <Col m={3}></Col>
+                    <Col m={3}>
+                        <Link to="/Posts">My Posts</Link>
+                    </Col>
+                    <Col m={3} style={styles.ReactedMemesStyle}>
+                        ReactedMemes                      
                     </Col>
                 </Row>
                 <Row>
@@ -21,7 +27,6 @@ class Landing extends Component {
                             actions={[<a href='#'>This is a Link</a>]}>
                             Card Title
                         </Card>
-                        <WebcamCapture />
                     </Col>
                 </Row>
                 <Row>
@@ -36,10 +41,18 @@ class Landing extends Component {
                     <Col m={3}></Col>
                 </Row>
             </div>
+            
         );
     }
 }
 
+const styles = {
+    TitleStyle: {
+        fontSize: 40
+    },
+    ReactedMemesStyle: {
+        textDecoration: 'underline'
+    }
+}
 
-
-export default Landing;
+export default ReactedMemes;

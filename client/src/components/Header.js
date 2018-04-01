@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Modal, Button } from 'react-materialize';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+import UploadImage from './UploadImage';
 
 class Header extends Component {
 
@@ -15,14 +19,24 @@ class Header extends Component {
                 ];
             default:
                 return [
-                    <li key="lists"><Link to="/MyMemeMotes">My MemeMotes</Link></li>,
-                    <li key="createList"><Link to="/Upload">Upload</Link></li>,
+                    <li key="posts"><Link to="/Posts">My Posts</Link></li>,
+                    <li key="reactedmemes"><Link to="/ReactedMemes">My Reacted Memes</Link></li>,
+                    <li key="createList">
+                        <Modal
+                            header='Upload a Meme'
+                            fixedFooter
+                            trigger={<Button>Upload</Button>}>
+                            <center>
+                                <UploadImage />
+                            </center>
+                        </Modal>
+                    </li>,
                     <li key="logout"><a href="/api/logout">Logout</a></li>
                 ];
         }
     }
 
-    render () {
+    render() {
         return (
             <nav className="blue">
                 <div className="container">
