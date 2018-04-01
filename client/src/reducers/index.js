@@ -1,8 +1,12 @@
 import { createStore, combineReducers } from 'redux';
 import authReducer from './authReducer';
+import cloudImage from './cloudImage';
+import cardReducer from './cardReducer';
 
 const rootReducer = combineReducers({
-    auth: authReducer
+    auth: authReducer,
+    cloudImage: cloudImage,
+    cards: cardReducer
 });
 
 const store = createStore(rootReducer);

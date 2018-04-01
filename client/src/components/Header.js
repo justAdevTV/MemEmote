@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
-import { NavItem, Navbar } from 'react-materialize';
+import { Modal, Button } from 'react-materialize';
+import Dropzone from 'react-dropzone';
+import request from 'superagent';
+import UploadImage from './UploadImage';
 
 class Header extends Component {
 
@@ -11,24 +14,45 @@ class Header extends Component {
                 return;
             case false:
                 return [
-                    <NavItem key="login"><a href="/auth/google">Login</a></NavItem>,
-                    <NavItem key="lists"><Link to="/lists">Lists</Link></NavItem>
+                    <li key="login"><a href="/auth/google">Login</a></li>,
+                    <li key="about"><Link to="/about">About Us</Link></li>
                 ];
             default:
                 return [
-                    <NavItem key="lists"><Link to="/lists">Lists</Link></NavItem>,
-                    <NavItem key="createList"><Link to="lists/create">Create List</Link></NavItem>,
-                    <NavItem key="myAccount"><Link to="myAccount">My Account</Link></NavItem>,
-                    <NavItem key="logout"><a href="/api/logout">Logout</a></NavItem>
-                ]
+                    <li key="posts"><Link to="/MyPosts">My Posts</Link></li>,
+                    <li key="react"><Link to="/">React To Memes!</Link></li>,
+                    <li key="createList">
+                        <Modal
+                            header='Upload a Meme'
+                            fixedFooter
+                            trigger={<Button>Upload</Button>}>
+                            <center>
+                                <UploadImage />
+                            </center>
+                        </Modal>
+                    </li>,
+                    
+                    <li key="logout"><a href="/api/logout">Logout</a></li>
+                ];
         }
     }
 
-    render () {
+    render() {
         return (
-            <Navbar brand='MemeMote' right>
-                {this.renderContent()}
-            </Navbar>
+            <nav className="blue">
+                <div className="container">
+                    <div className="nav-wrapper">
+                        <Link to="/" className="brand-logo">MemeMote</Link>
+                        <a href="" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
+                        <ul className="right hide-on-med-and-down">
+                            {this.renderContent()}
+                        </ul>
+                        <ul className="side-nav" id="mobile-demo">
+                            {this.renderContent()}
+                        </ul>
+                    </div>
+                </div>    
+            </nav>        
         );
     }
 }

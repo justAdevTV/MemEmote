@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "mememote-dev",
+  "private_key_id": "f83627f12b13e761995024e386a4613e66ff0c22",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCMOEyWKrAA9n/B\n/uYdVvoe0fqg5ZSbHnyGbBaof+8bu+ZFlD81F1a3zglPcEvHNfRtcynmhGYnwre/\nmrshVjIHml3EAVng41I0pm4U+U2xhhi9V+AwtSvDHglVA9UCtGVJ7bl3ZAg9GqkL\nkyCv0aIAd2HjXMIfW315Le/MKrpKlGOyp/0a6yH7na4POLVG/Ml16rBapvVN45e2\n1MhVvm4EpzG4kIiKE4GUpkt4/B16UFI47dh6LbrG0t6q7mEzuZrnLlFbfzDtphZP\nffYzPFsewtXb/RUEdCZGNln9voZmIw2ETvqzCwUHWRU5RpGe+6doFf0+TMuyhEgI\nAQ2dscN9AgMBAAECggEALAOKCsL4fzzgymi0G7aPCXiY5sNZu708kkdAb4DE8dwv\nwlxv4L7kMgrjAkP6DVyCzo5NMzYRCN8GpYawwZyYVKmgUCOqbjx8s9kgCcZdnGE+\nx8RbM37S70qw3DY5OUGd37BWvMKyEVgagu8aXgX8B5BxshgOOSCTSKPiNyCcXEcz\n7KOhyCR2nKG5kDjf/uNJEEc2KNdfv7OvuqCXT9MDex9GU1vIWxP3ayAZ+IzU8o2Z\nhKkKB6XZepwTrF94w0QIJVNdn2YxWG6RzlV8HHLOKO8QF37WUEfNcLH91ifpm0Uk\nZ9NBKgfU1ScKzg2AlKn8/2eyJqr44A5kRkEA/7xeYwKBgQDC3+9U9enCjpthj7Wc\nEdmBjXqh1RNoAytv2QjVav0ubXO7N46bGxGN/AtT+KE1/OVmI8dqv1H4nD3tz2Ec\nZTcZ9rgyVMd4NMRjfdWf1PuLZpAgftnYew/WQbrX0e7d5guy8SHNH+eQinLKdbdP\nxqnCjxobAI+553CSDUEDgE4QawKBgQC4M6/4uygNklNXLqleVtPZUFONuLjyO9L/\nyQkSARHiYvf8TFqahkfmzVguxwxH0s3pCWbhzYBr09y/bEDm6rx6HYW+68pPenSS\nEp60woGdQSb0U1ar6zjZBjAtB+sdDv5QQK/QMdRdyIUAk08PpGg/j/hfrRuyOeQc\n9hlE2XHVtwKBgAHq/EsExJEyoBrctDfeARsCTnOrSi6a4WGPbEPVcrpzP1FXYaLr\nKEgSc/YWm1eRrpxLu9m0GlVtDDr78IO8B0fNItDz/qaTNl+YTHLvQK6FiuOW/APi\naix8px8apNQwQGs5blC7gKbuheSyNeSmGuOcTvB3F/MHcRcu5DXpnFsTAoGAGXhc\nLsKCSU4gY/+5v6e152iqBQCz4hrPlDrSHEE1nd4deC9+n7tNmeZu+Rjg49WMT1rT\ndQmbZk2HSpjHaKawpRoL8lhcQx0lnUUh2NDEZ2Ao6MPVSjReSfQHGVLs+bmnBKXN\nKbaaLNWbPncgCYOsPo3DxEcFe2Fx32dQGysOCIUCgYBzrN3MhtY0Itd6OP8OstOB\njQOFEh7VTxtCY7WW0R6zrsz57PFbYEcaSqIPJgB79TbWR4BDL6F2ZBlXp4FLzw/0\nfyF9MNW6sR16zDC7/Ur1edfE451yVvuaOivFSQ9ZG5UVqMFVNAL0GZulggVYRp+g\nCh57dzVk7B9U8FmZJ/McTg==\n-----END PRIVATE KEY-----\n",
+  "client_email": "justadevtv@mememote-dev.iam.gserviceaccount.com",
+  "client_id": "114607174423062634373",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/justadevtv%40mememote-dev.iam.gserviceaccount.com"
+}
