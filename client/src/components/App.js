@@ -5,7 +5,6 @@ import Header from './Header';
 import Landing from './Landing';
 import Posts from './Posts';
 import Post from './Post';
-import ReactedMemes from './ReactedMemes';
 import * as actions from '../actions';
 
 class App extends Component {
