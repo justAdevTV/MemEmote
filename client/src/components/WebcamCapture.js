@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import request from 'superagent';
 import { sendEmotion } from '../actions';
 import dataURItoBlob from '../middleware/dataURItoBlob';
+import normalizeEmotions from '../middleware/normalizeEmotions';
 
 const CLOUDINARY_UPLOAD_PRESET = 'bpqajh69';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dscuecazs/image/upload';
@@ -15,6 +16,7 @@ class WebcamCapture extends Component {
     }
     // Call this to capture image
     capture = () => {
+      window.Materialize.toast('Scanning Facial MemeMotion...', 2500);
       const imageSrc = this.webcam.getScreenshot();
       this.handleImageUpload(imageSrc);                                                                   
     };
@@ -36,6 +38,18 @@ class WebcamCapture extends Component {
     }
    
     render() {
+
+      if (this.props.cloudImage !== null) {
+        let normVals = normalizeEmotions(this.props.cloudImage);
+        const {joy, anger, surprise, sorrow} = normVals;
+
+        window.Materialize.toast(`Joy: ${joy}`, 4000);
+        window.Materialize.toast(`Angry: ${anger}`, 4000);
+        window.Materialize.toast(`Suprised: ${surprise}`, 4000);
+        window.Materialize.toast(`Sad: ${sorrow}`, 4000);
+
+      }
+
       return (
         <div>
           <Webcam
