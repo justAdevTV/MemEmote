@@ -40,6 +40,10 @@ module.exports = (app) => {
                 _user: req.user._id
             }, (err, list_instance) => {
                 if (err) return handleError(err);
+
+                console.log(list_instance);
+
+                res.send(list_instance);
                 
                 // res.redirect('/lists/' + list_instance._id);
             });

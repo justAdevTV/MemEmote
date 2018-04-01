@@ -39,11 +39,11 @@ export const fetchCards = () => async dispatch => {
 };
 
 export const fetchUserCards = () => async dispatch =>{
-    const request = axios.get('/api/current_user/cards');
+    const request = axios.get('/api/userCards');
     
     dispatch({
         type: FETCH_USER_CARDS,
-        payload: request
+        payload: request.data
     });
 };
 
