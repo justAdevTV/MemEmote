@@ -58,8 +58,6 @@ module.exports = (app) => {
                             break;
                     }
 
-                    console.log(whichEmote);
-
                     if (id !== 2) {
                         cards.update({_id: id}, { 
                             $inc: { [whichEmote]: 1 } 
