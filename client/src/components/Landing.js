@@ -52,7 +52,6 @@ class Landing extends Component {
 }
 
 function mapStateToProps({cards}) {
-    console.log({cards});
     return {cards};
 }
 

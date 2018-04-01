@@ -20,6 +20,15 @@ export const fetchUser = () => async dispatch => {
     });
 };
 
+export const fetchCard = (id) => async dispatch => {
+    const request = await axios.get(`/api/card/${id}`);
+
+    dispatch({
+        type: FETCH_CARD,
+        payload: request.data
+    });
+};
+
 export const fetchCards = () => async dispatch => {
     const request = await axios.get('/api/cards');
 
@@ -53,15 +62,6 @@ export const createCard = (values, callback) => async dispatch => {
     dispatch({
         type: CREATE_CARD,
         payload: res.data
-    });
-};
-
-export const fetchCard = (id) => async dispatch => {
-    const request = axios.get(`/api/card/${id}`);
-
-    dispatch({
-        type: FETCH_CARD,
-        payload: request
     });
 };
 

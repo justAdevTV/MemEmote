@@ -7,6 +7,11 @@ import { Card, CardTitle, Icon } from 'react-materialize';
 class MemeCard extends Component {
 
     render() {
+
+        if (this.props.score === undefined) {
+            return 'Loading...'
+        }
+
         const {suprise, sorrow, neutral,anger,joy} = this.props.score;
 
         let author = 'Uploaded by '
@@ -36,4 +41,4 @@ class MemeCard extends Component {
 
 }
 
-export default connect()(MemeCard);
+export default MemeCard;
