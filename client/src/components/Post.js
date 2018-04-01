@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchCard } from '../actions';
 import MemeCard from './MemeCard';
 
-import { Row, Col } from 'react-materialize';
+import { Row, Col, Button, Icon } from 'react-materialize';
 import WebcamCapture from './WebcamCapture';
 
 class Post extends Component {
@@ -48,6 +48,7 @@ class Post extends Component {
                         />
                         <br/>
                         <p>Check out your own Memotion by clicking the button above.</p>
+                        <Button className="green" waves='light'>Next<Icon right>forward</Icon></Button>
                     </Col>
                 </Row>
             </div>
