@@ -40,6 +40,8 @@ class UploadImage extends Component {
                 uploadedFileCloudinaryUrl: response.body.secure_url,
                 loading: false
             });
+
+            window.Materialize.toast(`Your meme is now uploaded!`, 8000);
         }
         });
     }
@@ -55,7 +57,7 @@ class UploadImage extends Component {
                     <div>
                         <p>{this.state.uploadedFile.name}</p>
                         <div>
-                            <img src={this.state.uploadedFileCloudinaryUrl} />
+                            <img width="50%" src={this.state.uploadedFileCloudinaryUrl} />
                         </div>
                     </div>
                 }
