@@ -19,6 +19,7 @@ class Header extends Component {
             default:
                 return [
                     <li key="posts"><Link to="/Posts">My Posts</Link></li>,
+                    <li key="react"><Link to="/posts/react">React To Memes!</Link></li>,
                     <li key="createList">
                         <Modal
                             header='Upload a Meme'
@@ -30,7 +31,6 @@ class Header extends Component {
                         </Modal>
                     </li>,
                     
-                    <li key="react"><Link to="/posts/react">React To Memes!</Link></li>,
                     
                     <li key="logout"><a href="/api/logout">Logout</a></li>
                 ];
