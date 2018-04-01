@@ -28,12 +28,22 @@ module.exports = (app) => {
                 .faceDetection(pic)
                 .then(results => {
                     const faces = results[0].faceAnnotations;
-                    const emotions = {
-                        joy: faces[0].joyLikelihood,
-                        anger: faces[0].angerLikelihood,
-                        sorrow: faces[0].sorrowLikelihood,
-                        surprise: faces[0].surpriseLikelihood
-                    };
+                    let emotions = {};
+                    if (results[0].faceAnnotations.length === 0) {
+                        emotions = {
+                            joy: 'VERY_UNLIKELY',
+                            anger: 'VERY_UNLIKELY',
+                            sorrow: 'VERY_UNLIKELY',
+                            surprise: 'VERY_UNLIKELY'
+                        }
+                    } else {
+                        emotions = {
+                            joy: faces[0].joyLikelihood,
+                            anger: faces[0].angerLikelihood,
+                            sorrow: faces[0].sorrowLikelihood,
+                            surprise: faces[0].surpriseLikelihood
+                        };
+                    }                   
 
                     const normalizedEmote = normalizeEmotions(emotions);
                     let whichEmote = 'neutral';
