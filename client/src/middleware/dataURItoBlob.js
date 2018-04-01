@@ -1,18 +1,15 @@
 export default function dataURItoBlob(dataURI) {
-    // convert base64 to raw binary data held in a string
-    var byteString = atob(dataURI.split(',')[1]);
-
-    // separate out the mime component
-    var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
-
-    // write the bytes of the string to an ArrayBuffer
-    var arrayBuffer = new ArrayBuffer(byteString.length);
-    var _ia = new Uint8Array(arrayBuffer);
-    for (var i = 0; i < byteString.length; i++) {
-        _ia[i] = byteString.charCodeAt(i);
-    }
-
-    var dataView = new DataView(arrayBuffer);
-    var blob = new Blob([dataView], { type: mimeString });
-    return blob;
+    dataURItoBlob = function(dataURI) {
+        var array, binary, i;
+        binary = atob(dataURI.split(",")[1]);
+        array = [];
+        i = 0;
+        while (i < binary.length) {
+          array.push(binary.charCodeAt(i));
+          i++;
+        }
+        return new Blob([new Uint8Array(array)], {
+          type: "image/jpeg"
+        });
+    };
 }

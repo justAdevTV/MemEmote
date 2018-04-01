@@ -8,12 +8,10 @@ class WebcamCapture extends Component {
     setRef = (webcam) => {
       this.webcam = webcam;
     }
-   
     // Call this to capture image
     capture = () => {
-      const imageSrc = dataURItoBlob(this.webcam.getScreenshot());
-      console.log(imageSrc);
-      {this.props.sendEmotion(2, imageSrc)};                                                                                                          
+      const imageSrc = this.webcam.getScreenshot();
+      {this.props.sendEmotion(2, imageSrc)};                                                                    
     };
    
     render() {

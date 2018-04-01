@@ -18,7 +18,8 @@ module.exports = (app) => {
     app.post(
         '/api/vision_test', 
         (req, res) => {
-            const pic = req.body.picture;
+            let pic = req.body.picture;
+
             client
                 .faceDetection(pic)
                 .then(results => {
@@ -34,8 +35,8 @@ module.exports = (app) => {
                     res.send(emotions);
                 })
                 .catch(err => {
+                    // console.error('ERROR:', err);                    
                     res.send(err);
-                    console.error('ERROR:', err);
             });
     });
 }
