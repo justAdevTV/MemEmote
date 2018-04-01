@@ -12,7 +12,7 @@ module.exports = (app) => {
             cards.find(function(err, cards) {
                 if (err)
                     res.send(err);
-    
+
                 res.json(cards);
             });
         }

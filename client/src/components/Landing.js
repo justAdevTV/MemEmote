@@ -5,7 +5,14 @@ import { Card, CardTitle, Row, Col } from 'react-materialize';
 import WebcamCapture from './WebcamCapture';
 import MemeCard from './MemeCard';
 
+import { fetchCards } from '../actions';
+
 class Landing extends Component {
+
+    componentDidMount() {
+        this.props.fetchCards();
+    }
+
     render() {
         return (
             <div className="container">
@@ -26,6 +33,9 @@ class Landing extends Component {
     }
 }
 
+function mapStateToProps(props) {
+    console.log(props);
+    return props;
+}
 
-
-export default Landing;
+export default connect(mapStateToProps, {fetchCards})(Landing);

@@ -20,57 +20,59 @@ export const fetchUser = () => async dispatch => {
     });
 };
 
-export function fetchCards() {
-    const request = axios.get('/api/cards');
-    return {
+export const fetchCards = () => async dispatch => {
+    const request = await axios.get('/api/cards');
+
+    dispatch({
         type: FETCH_CARDS,
-        payload: request
-    };
+        payload: request.data
+    });
 };
 
-export function fetchUserCards() {
+export const fetchUserCards = () => async dispatch =>{
     const request = axios.get('/api/current_user/cards');
-    return {
+    
+    dispatch({
         type: FETCH_USER_CARDS,
         payload: request
-    };
+    });
 };
 
-export function fetchUserReactedCards() {
+export const fetchUserReactedCards = () => async dispatch => {
     const request = axios.get('/api/user_reacted_cards');
-    return {
+    
+    dispatch({
         type: FETCH_USER_REACTED_CARDS,
         payload: request
-    }
+    });
 }
 
-export function createCard(values, callback) {
-    const request = axios.post('/api/cards', values)
-    .then(() => callback());
+export const createCard = (values, callback) => async dispatch => {
+    const res = await axios.post('/api/cards', values)
 
-    return {
+    dispatch({
         type: CREATE_CARD,
-        payload: request
-    };
+        payload: res.data
+    });
 };
 
-export function fetchCard(id) {
+export const fetchCard = (id) => async dispatch => {
     const request = axios.get(`/api/card/${id}`);
 
-    return {
+    dispatch({
         type: FETCH_CARD,
         payload: request
-    };
+    });
 };
 
-export function deleteCard(id, callback) {
+export const deleteCard = (id, callback) => async dispatch => {
     const request = axios.delete(`/api/card/${id}`)
         .then(() => callback());
 
-    return {
+    dispatch({
         type: DELETE_CARD,
         payload: id
-    };
+    });
 };
 
 export const sendEmotion = (_id, picture) => async dispatch => {
