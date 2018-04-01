@@ -18,7 +18,7 @@ class Header extends Component {
                 ];
             default:
                 return [
-                    <li key="posts"><Link to="/Posts">My Posts</Link></li>,
+                    <li key="posts"><Link to="/MyPosts">My Posts</Link></li>,
                     <li key="react"><Link to="/posts/react">React To Memes!</Link></li>,
                     <li key="createList">
                         <Modal
@@ -30,7 +30,6 @@ class Header extends Component {
                             </center>
                         </Modal>
                     </li>,
-                    
                     
                     <li key="logout"><a href="/api/logout">Logout</a></li>
                 ];

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Row, Col, Card, CardTitle, Icon, Modal, Button } from 'react-materialize';
 
-class Posts extends Component {
+class MyPosts extends Component {
     render() {
         return (
             <div className="container">
@@ -71,4 +71,4 @@ const styles = {
 
 }
 
-export default Posts;
+export default MyPosts;

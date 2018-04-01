@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './Header';
 import Landing from './Landing';
-import Posts from './Posts';
+import MyPosts from './MyPosts';
 import Post from './Post';
 import * as actions from '../actions';
 
@@ -20,7 +20,7 @@ class App extends Component {
                     <div>
                         <Header />
                         <Route exact path="/" component={Landing} />
-                        <Route exact path="/Posts" component={Posts} />
+                        <Route exact path="/MyPosts" component={MyPosts} />
                         <Route exact path="/posts/:id" component={Post}/>
                     </div>
                 </BrowserRouter>
