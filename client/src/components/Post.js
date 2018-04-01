@@ -19,18 +19,18 @@ class Post extends Component {
             return <div>Loading...</div>;
         } else {
             const link = `/posts/${card._id}`;
-            console.log(card);
-            <MemeCard
-                key={card._id}
-                img={card.img}
-                date={card.date}
-                author={card.author}
-                score={card.score}
-                numReview={card.numReviews}
-                href={link}>
-            </MemeCard>
+            return (
+                <MemeCard
+                    key={card._id}
+                    img={card.img}
+                    date={card.date}
+                    author={card.author}
+                    score={card.score}
+                    numReview={card.numReviews}
+                    href={link}>
+                </MemeCard>
+            );
         }
-        
     }
 
     render() {

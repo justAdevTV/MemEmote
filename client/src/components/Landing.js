@@ -40,7 +40,7 @@ class Landing extends Component {
                         {this.renderCards()}
                     </Col>
                     <Col offset="m1" m={4} className="center">
-                        <br/><br/><br/><br/><br/><br/>
+                        <br/><br/><br/><br/><br/>
                         <WebcamCapture />
                         <br/>
                         <p>Check out your own Memotion by clicking the button above.</p>
