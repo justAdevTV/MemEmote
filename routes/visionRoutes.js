@@ -31,11 +31,10 @@ module.exports = (app) => {
                         surprise: faces[0].surpriseLikelihood
                     };
 
-                    console.log(emotions);
                     res.send(emotions);
                 })
                 .catch(err => {
-                    // console.error('ERROR:', err);                    
+                    console.error('ERROR:', err);                    
                     res.send(err);
             });
     });
