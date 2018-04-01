@@ -47,9 +47,9 @@ class WebcamCapture extends Component {
     render() {
 
       if (this.props.cloudImage !== null) {
-        let normVals = normalizeEmotions(this.props.cloudImage).newObj;
-        let highest = normalizeEmotions(this.props.cloudImage).highest;
-        console.log(highest);
+        let normVals = this.props.cloudImage.newObj;
+        let highest = this.props.cloudImage.highest;
+        
         const {joy, anger, surprise, sorrow} = normVals;
 
         if (highest === 'neutral') {

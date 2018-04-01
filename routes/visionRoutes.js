@@ -1,3 +1,4 @@
+const normalizeEmotions = require('../middlewares/normalizeEmotions');
 // Imports the Google Cloud client library
 const vision = require('@google-cloud/vision');
 
@@ -31,7 +32,7 @@ module.exports = (app) => {
                         surprise: faces[0].surpriseLikelihood
                     };
 
-                    res.send(emotions);
+                    res.send(normalizeEmotions(emotions));
                 })
                 .catch(err => {
                     console.error('ERROR:', err);                    
