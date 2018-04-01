@@ -22,7 +22,6 @@ class App extends Component {
                         <Route exact path="/" component={Landing} />
                         <Route exact path="/Posts" component={Posts} />
                         <Route exact path="/posts/:id" component={Post}/>
-                        <Route exact path="/ReactedMemes" component={ReactedMemes} />
                     </div>
                 </BrowserRouter>
             </div>
