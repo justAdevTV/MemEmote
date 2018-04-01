@@ -5,7 +5,7 @@ import { Card, CardTitle } from 'react-materialize';
 
 class MemeCard extends Component {
 
-
+    
 
     render() {
         return (

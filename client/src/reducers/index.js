@@ -6,7 +6,7 @@ import cardReducer from './cardReducer';
 const rootReducer = combineReducers({
     auth: authReducer,
     cloudImage: cloudImage,
-    cardReducers: cardReducer
+    cards: cardReducer
 });
 
 const store = createStore(rootReducer);

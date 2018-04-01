@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
@@ -13,13 +14,30 @@ class Landing extends Component {
         this.props.fetchCards();
     }
 
+    renderCards(){
+        return _.map(this.props.cards, card => {
+            const link = `/cards/${card._id}`;
+            return (
+                <MemeCard
+                    key={card._id}
+                    img={card.img}
+                    date={card.date}
+                    author={card.author}
+                    score={card.score}
+                    numReview={card.numReviews}
+                    href={link}>
+                </MemeCard>
+            );
+        });
+    }
+
     render() {
         return (
             <div className="container">
                 <Row>
                     <Col m={7}>
                         <h3>Embrace your Memotions</h3>
-                        <MemeCard />
+                        {this.renderCards()}
                     </Col>
                     <Col offset="m1" m={4} className="center">
                         <br/><br/><br/><br/><br/><br/>
@@ -33,9 +51,9 @@ class Landing extends Component {
     }
 }
 
-function mapStateToProps(props) {
-    console.log(props);
-    return props;
+function mapStateToProps({cards}) {
+    console.log({cards});
+    return {cards};
 }
 
 export default connect(mapStateToProps, {fetchCards})(Landing);
