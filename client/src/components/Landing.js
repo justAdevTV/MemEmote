@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Card, CardTitle, Row, Col } from 'react-materialize';
+import WebcamCapture from './WebcamCapture';
 
 class Landing extends Component {
     render() {
@@ -20,6 +21,7 @@ class Landing extends Component {
                             actions={[<a href='#'>This is a Link</a>]}>
                             Card Title
                         </Card>
+                        <WebcamCapture />
                     </Col>
                 </Row>
                 <Row>

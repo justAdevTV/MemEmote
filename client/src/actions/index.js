@@ -6,7 +6,8 @@ import {
     FETCH_USER_REACTED_CARDS,
     FETCH_CARD,
     CREATE_CARD,
-    DELETE_CARD
+    DELETE_CARD,
+    SEND_EMOTION_PICTURE
 } from './types';
 
 
@@ -70,4 +71,14 @@ export function deleteCard(id, callback) {
         type: DELETE_CARD,
         payload: id
     };
+};
+
+export const sendEmotion = (_id, picture) => async dispatch => {
+    const res = await axios.post('/api/vision_test', {_id, picture});
+
+    dispatch({
+        type: SEND_EMOTION_PICTURE,
+        payload: res.data
+    });
+
 };

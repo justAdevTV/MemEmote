@@ -4,7 +4,8 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
     googleId: String,
     username: String,
-    picture: String
+    picture: String,
+    reactedCards: [String]
 });
 
 mongoose.model('users', userSchema);
