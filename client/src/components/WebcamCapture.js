@@ -6,6 +6,8 @@ import { sendEmotion } from '../actions';
 import dataURItoBlob from '../middleware/dataURItoBlob';
 import normalizeEmotions from '../middleware/normalizeEmotions';
 
+import {Icon, Button} from 'react-materialize';
+
 const CLOUDINARY_UPLOAD_PRESET = 'bpqajh69';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dscuecazs/image/upload';
 
@@ -51,7 +53,7 @@ class WebcamCapture extends Component {
       }
 
       return (
-        <div>
+        <div className="center">
           <Webcam
             audio={false}
             height={350}
@@ -59,7 +61,7 @@ class WebcamCapture extends Component {
             screenshotFormat="image/jpeg"
             width={350}
           />
-          <button onClick={this.capture}>Capture photo</button>
+          <Button onClick={this.capture} waves='light'>Capture MemeMotion<Icon right>camera_alt</Icon></Button>
         </div>
       );
     }
