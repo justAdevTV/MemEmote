@@ -45,12 +45,15 @@ class UploadImage extends Component {
                 loading: false
             });
 
-
             const imgUrl = this.state.uploadedFileCloudinaryUrl; 
 
             this.props.createCard({img: imgUrl}); 
 
             window.Materialize.toast(`Your meme is now uploaded!`, 8000);
+
+            setTimeout(function() { //Start the timer
+                window.location.reload();
+            }.bind(this), 2500);
         }
         });
     }
