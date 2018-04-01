@@ -50,4 +50,9 @@ class WebcamCapture extends Component {
       );
     }
 }
-export default connect(null, {sendEmotion})(WebcamCapture);
+
+function mapStateToProps({cloudImage}) {
+  return {cloudImage};
+}
+
+export default connect(mapStateToProps, {sendEmotion})(WebcamCapture);
