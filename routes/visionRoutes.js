@@ -1,4 +1,6 @@
 const normalizeEmotions = require('../middlewares/normalizeEmotions');
+const mongoose = require('mongoose');
+const cards = mongoose.model('cards');
 // Imports the Google Cloud client library
 const vision = require('@google-cloud/vision');
 
@@ -20,6 +22,7 @@ module.exports = (app) => {
         '/api/vision_test', 
         (req, res) => {
             let pic = req.body.picture;
+            let id = req.body.postId;
 
             client
                 .faceDetection(pic)
@@ -32,7 +35,44 @@ module.exports = (app) => {
                         surprise: faces[0].surpriseLikelihood
                     };
 
-                    res.send(normalizeEmotions(emotions));
+                    const normalizedEmote = normalizeEmotions(emotions);
+                    let whichEmote = 'neutral';
+
+                    switch(normalizedEmote.highest) {
+                        case 'neutral':
+                            whichEmote = 'score.neutral';
+                            break;
+                        case 'joy':
+                            whichEmote = 'score.joy';
+                            break;
+                        case 'anger':
+                            whichEmote = 'score.anger';
+                            break;
+                        case 'surprise':
+                            whichEmote = 'score.surprise';
+                            break;
+                        case 'sorrow':
+                            whichEmote = 'score.sorrow';
+                            break;
+                        default:
+                            break;
+                    }
+
+                    console.log(whichEmote);
+
+                    if (id !== 2) {
+                        cards.update({_id: id}, { 
+                            $inc: { [whichEmote]: 1 } 
+                        }, (err, card_instance) => {
+                            console.log(card_instance);
+                        });
+                        
+                        res.send(normalizedEmote);
+                    } else {
+                        res.send(normalizedEmote);
+                    }
+
+                    
                 })
                 .catch(err => {
                     console.error('ERROR:', err);                    

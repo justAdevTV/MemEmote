@@ -10,7 +10,7 @@ const cardSchema = new Schema({
         anger: 0,
         neutral: 0,
         sorrow: 0,
-        suprise: 0
+        surprise: 0
     }},
     numReviews: {type: Number, default: 0},
     _user: { type: Schema.Types.ObjectId, ref: 'User'}

@@ -75,8 +75,8 @@ export const deleteCard = (id, callback) => async dispatch => {
     });
 };
 
-export const sendEmotion = (_id, picture) => async dispatch => {
-    const res = await axios.post('/api/vision_test', {_id, picture});
+export const sendEmotion = (postId, picture) => async dispatch => {
+    const res = await axios.post('/api/vision_test', {postId, picture});
 
     dispatch({
         type: SEND_EMOTION_PICTURE,
