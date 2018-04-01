@@ -6,7 +6,7 @@ import { Row, Col, Card, CardTitle, Icon, Modal, Button } from 'react-materializ
 class Posts extends Component {
     render() {
         return (
-            <div class="container">
+            <div className="container">
                 <Row>
                     <Col m={7} style={styles.TitleStyle} className='grid-example'>My Posts</Col>
                 </Row>
