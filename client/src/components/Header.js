@@ -24,6 +24,7 @@ class Header extends Component {
                     <li key="createList">
                         <Modal
                             header='Upload a Meme'
+                            fixedFooter
                             trigger={<Button>Upload</Button>}>
                             <center>
                                 <UploadImage />
