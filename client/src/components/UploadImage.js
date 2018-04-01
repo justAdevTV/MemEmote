@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
-import {connect} from 'react-redux';
-import { createCard } from '../actions';
-
-import { Icon } from 'react-materialize';
+import { Icon, Preloader } from 'react-materialize';
 const CLOUDINARY_UPLOAD_PRESET = 'bpqajh69';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dscuecazs/image/upload';
 
@@ -14,13 +11,15 @@ class UploadImage extends Component {
         super(props);
 
         this.state = {
-            uploadedFileCloudinaryUrl: ''
+            uploadedFileCloudinaryUrl: '',
+            loading: false
         };
     }
 
     onImageDrop(files) { 
         this.setState({
-            uploadedFile: files[0]
+            uploadedFile: files[0],
+            loading: true
         });
       
         this.handleImageUpload(files[0]);
@@ -28,8 +27,8 @@ class UploadImage extends Component {
 
     handleImageUpload(file) {
         let upload = request.post(CLOUDINARY_UPLOAD_URL)
-            .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
-            .field('file', file);
+                        .field('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+                        .field('file', file);
 
         upload.end((err, response) => {
         if (err) {
@@ -38,26 +37,30 @@ class UploadImage extends Component {
 
         if (response.body.secure_url !== '') {
             this.setState({
-                uploadedFileCloudinaryUrl: response.body.secure_url
+                uploadedFileCloudinaryUrl: response.body.secure_url,
+                loading: false
             });
         }
         });
     }
 
-    renderPreviewImage(){
-
-        const imgUrl = this.state.uploadedFileCloudinaryUrl;
-        
-        this.props.createCard({img: imgUrl});
+    renderImage() {
+        if (this.state.loading) {
+            return <Preloader size='big'/>;
+        }
 
         return (
             <div>
-                <p>{this.state.uploadedFile.name}</p>
-                <div style={{flex: 1}}>
-                    <img src={this.state.uploadedFileCloudinaryUrl} />
-                </div>
-            </div>
-        );
+                {this.state.uploadedFileCloudinaryUrl === '' ? null :
+                    <div>
+                        <p>{this.state.uploadedFile.name}</p>
+                        <div>
+                            <img src={this.state.uploadedFileCloudinaryUrl} />
+                        </div>
+                    </div>
+                }
+            </div>  
+        );        
     }
 
     render() {
@@ -74,15 +77,11 @@ class UploadImage extends Component {
                         </div>
                     </Dropzone>
                 </div>
-
-                <div>
-                    {this.state.uploadedFileCloudinaryUrl === '' ? null :
-                    this.renderPreviewImage()}
-                </div>  
+                {this.renderImage()}
             </form>
             
         );
     }
 }
 
-export default connect(null, {createCard})(UploadImage);
+export default UploadImage;

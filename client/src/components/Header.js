@@ -29,6 +29,9 @@ class Header extends Component {
                             </center>
                         </Modal>
                     </li>,
+                    
+                    <li key="react"><Link to="/posts/react">React To Memes!</Link></li>,
+                    
                     <li key="logout"><a href="/api/logout">Logout</a></li>
                 ];
         }

@@ -43,19 +43,22 @@ class WebcamCapture extends Component {
 
       if (this.props.cloudImage !== null) {
         let normVals = normalizeEmotions(this.props.cloudImage).newObj;
-        let isNormal = normalizeEmotions(this.props.cloudImage).highest;
-        console.log(isNormal);
+        let highest = normalizeEmotions(this.props.cloudImage).highest;
+        console.log(highest);
         const {joy, anger, surprise, sorrow} = normVals;
 
-        if (isNormal === 'neutral') {
+        if (highest === 'neutral') {
           window.Materialize.toast(`You're pretty neutral`, 4000);
-        } else {
-          window.Materialize.toast(`Joy: ${joy}`, 4000);
-          window.Materialize.toast(`Angry: ${anger}`, 4000);
-          window.Materialize.toast(`Suprised: ${surprise}`, 4000);
-          window.Materialize.toast(`Sad: ${sorrow}`, 4000);
         }
-
+        else if (highest === 'joy') {
+          window.Materialize.toast(`You look pretty happy!`, 4000);
+        }
+        else if (highest === 'anger') {
+          window.Materialize.toast(`You look quite upset.`, 4000);
+        }
+        else if (highest === 'surprise') {
+          window.Materialize.toast(`Took you for surprise there!`, 4000);
+        }          
       }
 
       return (
