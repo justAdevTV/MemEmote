@@ -16,25 +16,28 @@ class Landing extends Component {
                     <Col m={3}></Col>
                     <Col m={6}>
                         <Card
-                            className='medium'
-                            header={<CardTitle style={styles.HeaderStyle} image='https://img-9gag-fun.9cache.com/photo/aBx2xpz_460swp.webp'></CardTitle>}
+                            header={<CardTitle image='https://img-9gag-fun.9cache.com/photo/aBx2xpz_460swp.webp'></CardTitle>}
                             actions={[<a href='#'>This is a Link</a>]}>
                             Card Title
                         </Card>
                     </Col>
                 </Row>
-                
-                {/* TODO: Make */}
+                <Row>
+                    <Col m={3}></Col>
+                    <Col m={6}>
+                        <Card
+                            header={<CardTitle image='https://img-9gag-fun.9cache.com/photo/argMbD0_460swp.webp'></CardTitle>}
+                            actions={[<a href='#'>This is a Link</a>]}>
+                            Card Title
+                        </Card>
+                    </Col>
+                    <Col m={3}></Col>
+                </Row>
             </div>
         );
     }
 }
 
-const styles = {
-    HeaderStyle: {
-        height: 300,
-        width: 300
-    }
-}
+
 
 export default Landing;
