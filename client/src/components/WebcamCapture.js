@@ -34,7 +34,12 @@ class WebcamCapture extends Component {
         }
 
         if (response.body.secure_url !== '') {
+          // Updates the emotion
+          if (this.props.postId !== undefined) {
+            {this.props.sendEmotion(this.props.postId, response.body.secure_url)}; 
+          } else {
             {this.props.sendEmotion(2, response.body.secure_url)}; 
+          }
           }
         });
     }
@@ -57,8 +62,10 @@ class WebcamCapture extends Component {
           window.Materialize.toast(`You look quite upset.`, 4000);
         }
         else if (highest === 'surprise') {
-          window.Materialize.toast(`Took you for surprise there!`, 4000);
-        }          
+          window.Materialize.toast(`You look very surprised!`, 4000);
+        } else if (highest === 'sorrow') {
+          window.Materialize.toast(`Aww, sucks to see you sad.`, 4000);
+        }   
       }
 
       return (

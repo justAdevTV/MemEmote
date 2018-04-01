@@ -6,10 +6,6 @@ import { Card, CardTitle, Icon } from 'react-materialize';
 
 class MemeCard extends Component {
 
-    componentDidMount() {
-        console.log('I ran');
-    }
-
     render() {
 
         if (this.props.score === undefined) {

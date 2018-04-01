@@ -43,7 +43,9 @@ class Post extends Component {
                     </Col>
                     <Col offset="m1" m={4} className="center">
                         <br/><br/><br/><br/><br/><br/>
-                        <WebcamCapture />
+                        <WebcamCapture
+                            postId={this.props.match.params.id}
+                        />
                         <br/>
                         <p>Check out your own Memotion by clicking the button above.</p>
                     </Col>
