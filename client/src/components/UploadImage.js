@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
 import { Icon, Preloader } from 'react-materialize';
+
+import {connect} from 'react-redux'; 
+import { createCard } from '../actions'; 
+
 const CLOUDINARY_UPLOAD_PRESET = 'bpqajh69';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/dscuecazs/image/upload';
 
@@ -51,6 +55,10 @@ class UploadImage extends Component {
             return <Preloader size='big'/>;
         }
 
+        const imgUrl = this.state.uploadedFileCloudinaryUrl; 
+
+        this.props.createCard({img: imgUrl}); 
+
         return (
             <div>
                 {this.state.uploadedFileCloudinaryUrl === '' ? null :
@@ -86,4 +94,4 @@ class UploadImage extends Component {
     }
 }
 
-export default UploadImage;
+export default connect(null, {createCard})(UploadImage);

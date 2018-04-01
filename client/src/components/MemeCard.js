@@ -12,7 +12,7 @@ class MemeCard extends Component {
             return 'Loading...'
         }
 
-        const {suprise, sorrow, neutral,anger,joy} = this.props.score;
+        const {surprise, sorrow, neutral,anger,joy} = this.props.score;
 
         let author = 'Uploaded by '
         if (this.props.author !== undefined ) {
@@ -26,7 +26,7 @@ class MemeCard extends Component {
                 <Card header={<CardTitle image={this.props.img} waves='light'/>}
                     title={author}>
                     <div className="right">
-                        <span><Icon small>sentiment_very_satisfied</Icon>{suprise}</span>
+                        <span><Icon small>sentiment_very_satisfied</Icon>{surprise}</span>
                         <span><Icon small>sentiment_satisfied</Icon>{joy}</span>
                         <span><Icon small>sentiment_neutral</Icon>{neutral}</span>
                         <span><Icon small>sentiment_dissatisfied</Icon>{sorrow}</span>

@@ -57,7 +57,7 @@ export const fetchUserReactedCards = () => async dispatch => {
 }
 
 export const createCard = (values, callback) => async dispatch => {
-    const res = await axios.post('/api/cards', values)
+    const res = await axios.post('/api/cards', values);
 
     dispatch({
         type: CREATE_CARD,

@@ -33,7 +33,6 @@ module.exports = (app) => {
         requireAuth,
         (req, res) => {
             const body = req.body;
-
             cards.create({
                 date: new Date(),
                 author: req.user.username,
