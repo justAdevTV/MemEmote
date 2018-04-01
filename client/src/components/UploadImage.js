@@ -45,6 +45,11 @@ class UploadImage extends Component {
                 loading: false
             });
 
+
+            const imgUrl = this.state.uploadedFileCloudinaryUrl; 
+
+            this.props.createCard({img: imgUrl}); 
+
             window.Materialize.toast(`Your meme is now uploaded!`, 8000);
         }
         });
@@ -54,10 +59,6 @@ class UploadImage extends Component {
         if (this.state.loading) {
             return <Preloader size='big'/>;
         }
-
-        const imgUrl = this.state.uploadedFileCloudinaryUrl; 
-
-        this.props.createCard({img: imgUrl}); 
 
         return (
             <div>
