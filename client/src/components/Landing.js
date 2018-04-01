@@ -16,7 +16,7 @@ class Landing extends Component {
 
     renderCards(){
         return _.map(this.props.cards, card => {
-            const link = `/cards/${card._id}`;
+            const link = `/posts/${card._id}`;
             return (
                 <MemeCard
                     key={card._id}
